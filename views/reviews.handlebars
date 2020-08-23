@@ -1,0 +1,49 @@
+  <div class="ui container">
+    <button class="ui left floated inverted button">
+      <a class="item" href="./index.handlebars">Home</a>
+    </button>
+    <button class="ui right floated inverted button">
+      <a class="item" href="./login.handlebars">Log in</a>
+    </button>
+    <button class="ui right floated inverted button">
+      <a class="item" href="./signup.handlebars">Sign up</a>
+    </button>
+
+  </div>
+
+  <div id="main">
+    <div class="ui header">
+      <h12>YELP References</h12>
+    </div>
+    <div class="text-center">Search Restaurants And Activities By Location</div>
+    <form id="searchForm" class="ui search">
+      <input type="text" class="form-control" id="searchText" placeholder="New York, NY">
+    </form>
+
+    <form id="searchMore">
+      <input type="text" class="form-control" id="searchTodo" placeholder="What Activities?">
+    </form>
+    <button class="ui primary button" id="searchYelpButton">
+      Submit
+    </button>
+  </div>
+
+  <div class="container">
+    <div id="userPostsDB" class="row"></div>
+  </div>
+  <div class="container">
+    <div id="yelp" class="row"></div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../public/js/yelpAPI.js"></script>
+  <!-- <script src="js/main.js"></script> -->
+  <script>
+    getReviewInfo();
+  </script>
+
