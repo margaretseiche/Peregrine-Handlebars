@@ -6,7 +6,7 @@ $(document).ready(() => {
     sessionStorage.setItem('searchText', searchMain);
     let temp = sessionStorage.getItem('searchText');
     console.log(temp);
-    window.location = ('reviews.html')
+    window.location = ('reviews')
     event.preventDefault();
   });
 });

@@ -88,19 +88,23 @@ module.exports = (app) => {
 
     // Global Search Route Test - verified via Postman
     app.get("/api/search/:terms", (req, res) => {
-        console.log(`The req params = ${req.params}`);
+        console.log("The req params = ", req.params);
         db.UserPost.findAll({
             where: {
                 [Op.or]: [
-                    { postLocation: { [Op.like]: `%${req.params.terms}%` } },
-                    { postTitle: { [Op.like]: `%${req.params.terms}%` } },
-                    { postTags: { [Op.like]: `%${req.params.terms}%` } },
-                    { userRating: { [Op.like]: `%${req.params.terms}%` } }
+                    { postLocation: { [Op.like]: "%" + req.params.terms + "%" } },
+                    { postTitle: { [Op.like]: "%" + req.params.terms + "%" } },
+                    { postTags: { [Op.like]: "%" + req.params.terms + "%" } },
+                    { userRating: { [Op.like]: "%" + req.params.terms + "%" } }
                 ]
             }
         })
             .then(function (data) {
-                res.json(data);
+                const hbsObject = {
+                    posts: data
+                  };
+                  console.log("The hbsObject = ", hbsObject);
+                  res.render("../views/index", hbsObject);
             })
             .catch(err => {
                 res.status(502).json(err);

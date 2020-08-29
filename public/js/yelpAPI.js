@@ -120,7 +120,7 @@ function getYelpTodo(searchTodo, searchLocation) {
 function restaurantSelected(id) {
   sessionStorage.setItem('restaurantId', id);
   console.log(id);
-  window.location = 'restaurant.html';
+  window.location = 'restaurant';
   return false;
 }
 
@@ -162,7 +162,7 @@ function getRestaurant() {
                 <h7>Reviews: </h7>
                 ${reviews.text}
                 <a href=${reviews.url} target="_blank" class="btn btn-primary">View On Yelp</a>
-                <a href="index.html" class="btn btn-default">Go Back To Search</a>
+                <a href="index" class="btn btn-default">Go Back To Search</a>
                 <hr>
               </div>
             </div>

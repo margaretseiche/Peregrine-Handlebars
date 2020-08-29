@@ -5,8 +5,6 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
-const exphbs = require("express-handlebars");
-
 // Set the port of our application
 // process.env.PORT lets the port be set by Heroku
 const PORT = process.env.PORT || 8080;
@@ -28,33 +26,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Handlebars as the default templating engine.
+const exphbs = require("express-handlebars");
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-
-// Data
-var lunches = [
-  {
-    lunch: "Beet & Goat Cheese Salad with minestrone soup."
-  }, {
-    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp"
-  }
-];
-
-// Routes
-app.get("/weekday", function(req, res) {
-  res.render("index", lunches[0]);
-});
-
-app.get("/weekend", function(req, res) {
-  res.render("index", lunches[1]);
-});
-
-app.get("/lunches", function(req, res) {
-  res.render("all-lunches", {
-    foods: lunches,
-    eater: "david"
-  });
-});
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);
