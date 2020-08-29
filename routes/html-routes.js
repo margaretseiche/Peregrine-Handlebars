@@ -51,6 +51,10 @@ module.exports = function(app) {
   app.get('/person', (req, res) => {
     res.render('person');
   });
+  
+  app.get('/post', (req, res) => {
+    res.render('restaurant');
+  });
 
   app.get('/restaurant', (req, res) => {
     res.render('restaurant');
